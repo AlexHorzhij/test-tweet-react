@@ -2,35 +2,53 @@ import { fetchUsers } from '../service/api';
 import { Tweeet } from './Tweet';
 import { Container, Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { updateFollowersCount } from '../service/api';
+// import { updateFollowersCount } from '../service/api';
 
 export const UserList = () => {
-  const [users, setUsers] = useState([]);
+  const [usersData, setUsers] = useState(
+    JSON.parse(localStorage.getItem('users')) || []
+  );
   const [follow, setFollow] = useState(
-    JSON.parse(localStorage.getItem('followers'))
+    JSON.parse(localStorage.getItem('followers')) || []
   );
 
   const fetchData = async () => {
     const users = await fetchUsers();
-    setUsers(users);
+    if (usersData.length === 0) {
+      setUsers(users);
+      localStorage.setItem('users', JSON.stringify(users || []));
+    }
   };
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const setUserToLocalStorage = (id, followersCount) => {
+    const users = JSON.parse(localStorage.getItem('users'));
+    const index = users?.findIndex(item => item.id === id);
+    users[index].followers = followersCount;
+    localStorage.setItem('users', JSON.stringify(users));
+  };
+
   const changeFolowing = (id, check, followersCount) => {
-    updateFollowersCount(id, followersCount);
+    // updateFollowersCount(id, followersCount);
     if (check) {
       setFollow(prev => [...prev, id]);
     } else {
       const newArr = follow.filter(item => item !== id);
       setFollow(newArr);
     }
+    setUserToLocalStorage(id, followersCount);
   };
   useEffect(() => {
     localStorage.setItem('followers', JSON.stringify(follow));
   }, [follow]);
+
+  const users = JSON.parse(localStorage.getItem('users')) || usersData;
+  console.log('users: ', users);
+  console.log('follow: ', follow);
 
   return (
     <Container component="main">

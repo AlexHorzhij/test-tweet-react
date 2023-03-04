@@ -1,5 +1,5 @@
 import { ContentBox, Count, Btn, Title } from 'components/Content.styled';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const bgBtnTrue = {
   bgcolor: '#5CD3A8',
@@ -14,17 +14,19 @@ export const Content = ({ user, changeFolowing, isFollowing }) => {
   const [check, setCheck] = useState(isFollowing);
 
   const [followersCount, setFollowersCount] = useState(user.followers);
-  console.log(check);
 
   const onFollow = () => {
     setCheck(prev => !prev);
     if (!check) {
       setFollowersCount(prev => (prev += 1));
     } else {
-      setFollowersCount(followersCount - 1);
+      setFollowersCount(prev => (prev -= 1));
     }
-    changeFolowing(user.id, check, followersCount);
   };
+  useEffect(() => {
+    changeFolowing(user.id, check, followersCount);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [check]);
 
   const splitedFollowerCount = count => {
     const countArr = count.toString().split('');

@@ -24,7 +24,6 @@ export const updateFollowersCount = async (id, followersCount) => {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
       },
     });
 
