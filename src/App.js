@@ -1,7 +1,7 @@
-import { Tweeet } from './components/Tweet';
+import { UserList } from './components/UserList';
 
 function App() {
-  return <Tweeet />;
+  return <UserList />;
 }
 
 export default App;

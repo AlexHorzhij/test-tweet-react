@@ -1,10 +1,12 @@
-import { Box, Line, Image } from './Avatar.styled';
+import { Circle, Foto, Image, FotoContainer } from './Avatar.styled';
 
-export const Avatar = () => {
+export const Avatar = ({ foto }) => {
   return (
-    <Box>
-      <Image />
-      <Line />
-    </Box>
+    <Image>
+      <Circle />
+      <FotoContainer>
+        <Foto image={foto} />
+      </FotoContainer>
+    </Image>
   );
 };

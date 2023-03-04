@@ -1,32 +1,44 @@
 import styled from "@emotion/styled";
+import { CardMedia, Box } from '@mui/material';
 
-export const Box = styled('div')`
-position: relative;
-     /* width: 80px; */
+export const Image = styled(Box)`
+    position: absolute;
+    top: 178px;
+    left: 150px;
+    width: 80px;
     height: 80px;
-    display: flex;
+    display: inline-flex;
+    object-fit: cover;
     align-items: center;
     justify-content: center;
 `
 
-export const Line = styled('div')`
-    /* position: relative; */
-    width: 380px;
-    height: 8px;
-    left: 0px;
-    top: 50%;
-    background: #EBD8FF;
-    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06), inset 0px -1.71846px 3.43693px #AE7BE3, inset 0px 3.43693px 2.5777px #FBF8FF;
-` 
-export const Image = styled('div')`
+
+export const Circle = styled(Box)`
     position: absolute;
-    /* left: 50%;
-    right:50%; */
-    /* top: 28px;  */
     z-index: 100;
     width: 80px;
     height: 80px;
-    background: #EBD8FF;
+    background-color: #EBD8FF;
     box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06), inset 0px -2.19582px 4.39163px #AE7BE3, inset 0px 4.39163px 3.29372px #FBF8FF;
+    border-radius: 50%;
+`
+
+export const FotoContainer = styled(Box)`
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    z-index: 140;
+    border-radius: 50%;
+    background: linear-gradient(114.99deg, #471CA9 -0.99%, #5736A3 54.28%, #4B2A99 78.99%);
+
+`
+
+export const Foto = styled(CardMedia)`
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    z-index: 150;
+    object-fit: cover;
     border-radius: 50%;
 `
