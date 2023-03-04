@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.js": "/test-tweet-react/static/js/main.053455bc.js",
+    "main.js": "/test-tweet-react/static/js/main.09378aaa.js",
+    "static/media/bg.png": "/test-tweet-react/static/media/bg.032662a2a907475127d7.png",
     "index.html": "/test-tweet-react/index.html",
-    "main.053455bc.js.map": "/test-tweet-react/static/js/main.053455bc.js.map"
+    "main.09378aaa.js.map": "/test-tweet-react/static/js/main.09378aaa.js.map"
   },
   "entrypoints": [
-    "static/js/main.053455bc.js"
+    "static/js/main.09378aaa.js"
   ]
 }
