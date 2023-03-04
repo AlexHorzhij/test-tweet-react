@@ -2,7 +2,6 @@ import { fetchUsers } from '../service/api';
 import { Tweeet } from './Tweet';
 import { Container, Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
-// import { updateFollowersCount } from '../service/api';
 
 export const UserList = () => {
   const [usersData, setUsers] = useState(
@@ -33,7 +32,6 @@ export const UserList = () => {
   };
 
   const changeFolowing = (id, check, followersCount) => {
-    // updateFollowersCount(id, followersCount);
     if (check) {
       setFollow(prev => [...prev, id]);
     } else {
@@ -47,8 +45,6 @@ export const UserList = () => {
   }, [follow]);
 
   const users = JSON.parse(localStorage.getItem('users')) || usersData;
-  console.log('users: ', users);
-  console.log('follow: ', follow);
 
   return (
     <Container component="main">

@@ -45,8 +45,7 @@ export const Content = ({ user, changeFolowing, isFollowing }) => {
       <Title sx={{ mb: '26px' }}> {user.user} </Title>
       <Count sx={{ mb: '12px' }}> {user.tweets} tweets </Count>
       <Count sx={{ mb: '26px' }}>
-        {' '}
-        {splitedFollowerCount(followersCount)} Followers{' '}
+        {splitedFollowerCount(Number(followersCount) + 100000)} Followers
       </Count>
       <Btn
         sx={check ? bgBtnTrue : bgBtnFalse}
